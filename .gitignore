@@ -1,3 +1,5 @@
+localhost
+studentdb
 .idea
 target/
 !.mvn/wrapper/maven-wrapper.jar
