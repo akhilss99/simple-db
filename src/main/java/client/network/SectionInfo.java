@@ -2,12 +2,16 @@ package client.network;
 
 import engine.jdbc.network.NetworkDriver;
 
-import javax.swing.plaf.nimbus.State;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 /**
- * Assignment - 1
+ * Assignment - 1:
+ * Query Professor in a particular section number along with the number of students that received A grades for that particular section.
  *
  * @author Akhil S S
  * */
