@@ -15,15 +15,23 @@ public class SimpleIJ {
       try (Connection conn = d.connect(s, null);
            Statement stmt = conn.createStatement()) {
          System.out.print("\nSQL> ");
+         StringBuilder query = new StringBuilder();
          while (sc.hasNextLine()) {
             // process one line of input
-            String cmd = sc.nextLine().trim();
-            if (cmd.startsWith("exit"))
-               break;
-            else if (cmd.startsWith("select"))
-               doQuery(stmt, cmd);
-            else
-               doUpdate(stmt, cmd);
+            String line = sc.nextLine().trim();
+            if(line.endsWith(";")){
+               if (query.toString().startsWith("exit"))
+                  break;
+               else if (line.startsWith("select"))
+                  doQuery(stmt, query.toString());
+               else
+                  doUpdate(stmt, query.toString());
+
+               query = new StringBuilder();
+            }
+            else{
+               query.append(line);
+            }
             System.out.print("\nSQL> ");
          }
       }
